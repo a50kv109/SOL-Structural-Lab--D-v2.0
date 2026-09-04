@@ -1,6 +1,6 @@
 # Synthetic Sample Repository: Micro-Auth Service
 
-> **NOTICE:** This is a **SYNTHETIC** demonstration repository included solely to illustrate how SOL Structural Lab (LAB-G) operates and how an external autonomous AI agent should consume its outputs.
+> **NOTICE:** This is a **SYNTHETIC** demonstration repository included solely to illustrate how SOL Structural Lab (D-v2.0) operates and how an external autonomous AI agent should consume its outputs.
 
 ## Structure
 

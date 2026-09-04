@@ -1,9 +1,9 @@
 /**
- * SOL STRUCTURAL LAB v2.0
- * LOCAL DETERMINISTIC SOURCE CODE ANALYZER & PARSER
+ * SOL STRUCTURAL LAB — D-v2.0
+ * LOCAL DETERMINISTIC SOURCE-STRUCTURE ANALYZER & PARSER
  * 
- * Provides AST-level structural extraction, invariant discovery,
- * and boundary analysis for Python and TypeScript/JavaScript sources.
+ * Provides deterministic source-structure extraction (regex, indentation, and token heuristics),
+ * invariant discovery, and boundary analysis for Python and TypeScript/JavaScript sources.
  * 
  * Epistemic Guarantees:
  * - Deterministic parsing (no stochastic LLMs, no hallucinations).
@@ -208,7 +208,7 @@ export class SourceCodeAnalyzer {
   }
 
   /**
-   * Deterministic Python AST parser
+   * Deterministic Python source-structure parser (regex & indentation tracking)
    */
   private static parsePythonAst(
     filePath: string,
@@ -389,7 +389,7 @@ export class SourceCodeAnalyzer {
   }
 
   /**
-   * Deterministic TypeScript / JS AST parser
+   * Deterministic TypeScript / JS source-structure parser (regex & token heuristics)
    */
   private static parseTypeScriptAst(
     filePath: string,

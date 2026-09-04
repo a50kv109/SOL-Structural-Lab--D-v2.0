@@ -1,15 +1,15 @@
-# TOOL CARD: SOL Structural Lab (LAB-G)
+# TOOL CARD: SOL Structural Lab (D-v2.0)
 
 ```yaml
-TOOL: SOL Structural Lab (LAB-G) v2.0
+TOOL: SOL Structural Lab — D-v2.0 (Historical Lineage: LAB-G)
 PURPOSE: Rigorous structural and invariant inspection of software source repositories with strict epistemic discipline.
 BEST FOR:
-  - Extracting verifiable architectural observations (FACTs) from TypeScript/JavaScript codebases.
+  - Extracting verifiable architectural observations (FACTs) from TypeScript/JavaScript and Python codebases via deterministic source-structure parsing.
   - Detecting invariant violations, contract mismatches, and boundary contradictions.
   - Generating structured analytical reports with segregated epistemic confidence.
   - Providing file-level pointers for targeted autonomous agent source code inspection.
 NOT FOR:
-  - Universal full-AST semantic indexing or arbitrary language execution.
+  - Universal full-compiler AST semantic indexing or arbitrary language execution.
   - Automated refactoring, code editing, or unsupervised pull-request generation.
   - Direct execution of arbitrary repository test suites or build runners.
   - Replacing manual human code review or independent agent source verification.
@@ -32,6 +32,11 @@ EPISTEMIC MODEL:
   - Invariant I1: `OBSERVATION ≠ INFERENCE` (pure observations cannot contain speculative verbs).
   - Invariant I6: `UNKNOWN ≠ FALSE` (absence of evidence is never coerced to boolean false).
   - Invariant I7: `INFERENCE ≠ EVIDENCE` (inferences cannot be promoted to facts without source proof).
+PARSER IMPLEMENTATION:
+  - Local deterministic source-structure parser (regex, token, and indentation heuristics; not a full compiler AST).
+VERIFICATION REALITY:
+  - Built-in runtime integrity suite (`src/testing/integrityTest.ts`) with 12 automated checks covering 5.2 invariants, contracts C1-C5, and negative cases.
+  - Executable via `npm test` or `bun run test`.
 MAIN STRENGTH:
   - Immune to hallucinated certainty: enforces hard epistemic guardrails so derived interpretations cannot masquerade as ground truth.
 MAIN LIMITATION:
@@ -43,5 +48,5 @@ TRUST MODEL:
 COMPLEMENTARY TO:
   - Static linters, security SAST scanners, unit/e2e test suites, and autonomous coding agents performing local source edits.
 QUICK START:
-  DISCOVER → UNDERSTAND PURPOSE → PREPARE INPUT → RUN LAB-G → READ lab_report.json → RESPECT EPISTEMIC STATUS → VERIFY IF NECESSARY → DECIDE NEXT ACTION
+  DISCOVER → UNDERSTAND PURPOSE → PREPARE INPUT → RUN D-v2.0 → READ lab_report.json → RESPECT EPISTEMIC STATUS → VERIFY IF NECESSARY → DECIDE NEXT ACTION
 ```

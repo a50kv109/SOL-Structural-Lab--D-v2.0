@@ -1,8 +1,8 @@
-# AGENT_GUIDE: Autonomous Agent Operations Manual for SOL LAB (LAB-G)
+# AGENT_GUIDE: Autonomous Agent Operations Manual for SOL Structural Lab (D-v2.0)
 
-> **"I am an autonomous AI agent encountering this repository for the first time. What do I do?"**
+> **"I am an autonomous AI coding/reasoning agent encountering this repository for the first time. What do I do?"**
 
-This document is the canonical operational manual for AI coding and reasoning agents interacting with **SOL Structural Lab (LAB-G) v2.0**.
+This document is the canonical operational manual for AI coding and reasoning agents interacting with **SOL Structural Lab — D-v2.0** (with historical operational lineage from LAB-G).
 
 ---
 
@@ -19,7 +19,7 @@ READ AGENT_GUIDE.md
   ↓
 PREPARE TARGET REPOSITORY (repository.zip preferred)
   ↓
-RUN LAB-G (SINGLE or DUAL_ANALYSIS)
+RUN D-v2.0 (SINGLE or DUAL_ANALYSIS)
   ↓
 LOCATE lab_report.json (PRIMARY MACHINE-READABLE RESULT)
   ↓
@@ -39,53 +39,56 @@ DECIDE NEXT ACTION (preserve original epistemic statuses)
 - **DO NOT USE AS EXTERNAL AGENT CONTRACT:**
   - `PipelineExecutionLog`
   - Internal execution telemetry
-  - Implementation details of internal analyzers
+  - Implementation details of internal analyzers or private helper classes
 
 ---
 
 ## 1. Purpose & Tool Usage Boundary
 
-SOL Structural Lab is a deterministic, epistemically constrained structural analysis engine. It evaluates code repositories and emits findings classified by strict epistemic tiers (`FACT`, `INFERENCE`, `UNKNOWN`, `AMBIGUOUS`, `DISPUTED`).
+**SOL Structural Lab — D-v2.0** is a deterministic, epistemically constrained structural analysis engine. It evaluates code repositories and emits findings classified into strict epistemic tiers (`FACT`, `INFERENCE`, `UNKNOWN`, `AMBIGUOUS`, `DISPUTED`).
 
-### LAB-G is designed for:
-- **Structural analysis** (imported modules, interface contracts, call hierarchies).
-- **Diagnostic investigation** (detecting boundary contradictions, invariant mismatches).
-- **Evidence-oriented repository analysis** (verifiable ground-truth observations).
-- **Prioritization of further investigation** (actionable file-level loci).
+### D-v2.0 is designed for:
+- **Structural reconnaissance** (extracting classes, interfaces, imports, and call dependencies via deterministic source-structure parsing).
+- **Diagnostic investigation** (detecting boundary contradictions, invariant mismatches, and contract violations).
+- **Evidence-grounded repository analysis** (generating verifiable factual observations).
+- **Prioritization of further investigation** (providing reliable file-level locators for targeted inspection).
 
-### LAB-G is NOT:
-- A universal proof system.
-- A guarantee of the absence of defects.
-- An exhaustive mirror of the repository.
-- A replacement for independent verification.
+### D-v2.0 is NOT:
+- A universal mathematical proof system or theorem prover.
+- A guarantee of the total absence of bugs or security vulnerabilities.
+- An exhaustive AST compiler or semantic indexer for all programming languages.
+- A replacement for independent agent source code verification.
+
+### Historical Lineage Note:
+Where you encounter mentions of **LAB-G** (e.g. in historical experiment notes, benchmark datasets, or archive manifests), recognize that LAB-G was the original laboratory prototype. **D-v2.0** is the autonomous, public release implementing the complete 5.2 Core discipline.
 
 ---
 
-## 2. When to Use LAB-G
+## 2. When to Use D-v2.0
 
-Use LAB-G when you need to:
-- Establish verified structural properties of a codebase (imported modules, interface contracts, call hierarchies).
-- Identify explicit boundary contradictions or invariant violations.
-- Obtain an epistemically graded inventory before performing architectural modifications.
+Use D-v2.0 when you need to:
+- Establish verified structural properties of a codebase (modules, exported interfaces, and dependency edges).
+- Identify explicit boundary contradictions or invariant violations without relying on ungrounded LLM guesses.
+- Obtain an epistemically graded inventory before performing non-trivial architectural refactorings.
 - Obtain precise file pointers for targeted code inspection.
 
 ---
 
-## 3. When NOT to Use LAB-G
+## 3. When NOT to Use D-v2.0
 
-Do NOT use LAB-G when:
-- You need a universal compiler or dynamic test execution runner (e.g., running `npm test` or `pytest`).
-- You expect automated code refactoring or automatic file generation.
-- You require natural-language summaries of business requirements or user stories.
-- You need micro-optimizations or style linting (use ESLint/Prettier instead).
+Do NOT use D-v2.0 when:
+- You need a dynamic compiler or test runner (e.g., executing `npm test` or `pytest`).
+- You expect automated code refactoring, AST rewriting, or automatic PR generation.
+- You require natural-language summaries of business requirements or product roadmaps.
+- You need stylistic linting or formatting (use standard linters like ESLint, Prettier, or Ruff).
 
 ---
 
 ## 4. Input Requirements
 
-LAB-G consumes:
+D-v2.0 consumes:
 1. **Source Repository Corpus**:
-   - **`FULL_ZIP` (Recommended)**: An uncompressed or zipped archive containing the target codebase. Ensures `corpus_status: COMPLETE`.
+   - **`FULL_ZIP` (Recommended)**: A zipped archive containing the target codebase. Ensures `corpus_status: COMPLETE`.
    - **`GITHUB_QUICK_SCAN`**: Scans an accessible repository tree. Results in `corpus_status: PARTIAL`; findings must be treated with partial-corpus warnings.
 2. **Execution Mode**:
    - `SINGLE`: Canonical 5.2 Core baseline analysis pass.
@@ -102,7 +105,7 @@ UNDERSTAND PURPOSE
   ↓
 PREPARE INPUT (repository.zip preferred)
   ↓
-RUN LAB-G (SINGLE or DUAL_ANALYSIS)
+RUN D-v2.0 (SINGLE or DUAL_ANALYSIS)
   ↓
 READ lab_report.json (unknowns & limitations first)
   ↓
@@ -156,7 +159,7 @@ Evidence items link claims to source files:
 ### When Line Coordinates Are `null`:
 1. **Do NOT invent coordinates**: Never guess line numbers, line ranges, or code excerpts.
 2. **Do NOT infer falsehood**: `null` does not mean the evidence is invalid or fabricated; it means the analyzer localized the finding to the file level rather than isolated lines.
-3. **Use as a Locator**: Open `src/services/sessionStore.ts` in `repository.zip` to find the exact construct.
+3. **Use as a Locator**: Open `src/services/sessionStore.ts` in `repository.zip` to locate the exact construct.
 4. **Distinguish Provenance**: When you locate the exact lines independently, classify them as **Agent Independent Evidence**, never as "Evidence supplied by SOL LAB".
 
 ---
@@ -165,20 +168,20 @@ Evidence items link claims to source files:
 
 > **Absence from `lab_report.json` DOES NOT imply absence from the repository.**
 
-- LAB-G analyzes specific invariants and targets. It is **not** an exhaustive mirror of every line of code.
-- If a security flaw, pattern, or method is not mentioned in `lab_report.json`, you **must not** conclude that it does not exist in the codebase.
+- D-v2.0 analyzes specific invariants and targets. It is **not** an exhaustive mirror of every line of code.
+- If a security flaw, architectural pattern, or method is not mentioned in `lab_report.json`, you **must not** conclude that it does not exist in the codebase.
 - The report is a **navigation and analytical aid**, not a substitute for source inspection.
 
 ---
 
 ## 10. Independent Verification Protocol
 
-When your task requires certainty beyond what LAB-G provides:
+When your task requires certainty beyond what D-v2.0 provides:
 1. Extract `evidence.file` targets from `lab_report.json`.
 2. Inspect the raw source code in `repository.zip`.
 3. If your inspection confirms or refutes an `INFERENCE`, state:
-   - *"SOL LAB reported INFERENCE [id]. Independent source inspection of [file] confirmed/refuted this hypothesis with the following evidence: [...]"*
-4. Keep LAB findings and your independent findings strictly separated in your output.
+   - *"SOL Structural Lab (D-v2.0) reported INFERENCE [id]. Independent source inspection of [file] confirmed/refuted this hypothesis with the following evidence: [...]"*
+4. Keep D-v2.0 findings and your independent findings strictly separated in your output.
 
 ---
 
@@ -187,6 +190,6 @@ When your task requires certainty beyond what LAB-G provides:
 - **DO NOT** convert `UNKNOWN` into `FALSE` (e.g., claiming a function is absent just because its return type was marked UNKNOWN).
 - **DO NOT** convert `INFERENCE` into `FACT` without reading the source code.
 - **DO NOT** fabricate missing line numbers or missing code excerpts.
-- **DO NOT** state that LAB-G guaranteed something was absent just because the report was silent.
+- **DO NOT** state that D-v2.0 guaranteed something was absent just because the report was silent.
 - **DO NOT** confuse `lab_report.json` with internal execution logs (`PipelineExecutionLog`).
-- **DO NOT** attempt to execute or invoke internal LAB-G private methods directly.
+- **DO NOT** attempt to execute or invoke internal D-v2.0 private methods directly.

@@ -15,6 +15,7 @@ import { ExternalToolRegistry } from '../tools/registry';
 import { TWO_HEROES_TOOL_SPEC } from '../tools/twoHeroesTool';
 import { CURRENT_LABORATORY_CHECKPOINT } from '../memory/checkpoint';
 import { DualAnalysisEvaluationProtocol } from '../protocols/dualAnalysisEvaluationProtocol';
+import '../tools/builtInAnalyzers';
 
 export interface IntegrityCheckItem {
   id: string;

@@ -1,6 +1,6 @@
 # SOL Structural Lab Examples & Reference Walkthroughs
 
-This folder contains reference materials and walkthroughs demonstrating how an external autonomous AI agent consumes SOL Structural Lab (LAB-G) outputs.
+This folder contains reference materials and walkthroughs demonstrating how an external autonomous AI agent consumes SOL Structural Lab (D-v2.0) outputs.
 
 ---
 
