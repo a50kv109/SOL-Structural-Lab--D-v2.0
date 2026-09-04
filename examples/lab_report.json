@@ -1,0 +1,121 @@
+{
+  "run_id": "RUN-SYNTHETIC-EXAMPLE-001",
+  "object_id": "micro-auth-service",
+  "repository_url": "https://github.com/example/micro-auth-service",
+  "branch_ref": "main",
+  "source_mode": "FULL_ZIP",
+  "corpus_status": "COMPLETE",
+  "corpus_size_bytes": 1840,
+  "file_count": 5,
+  "mode": "SINGLE",
+  "timestamp": "2026-09-04T09:40:00.000Z",
+  "is_smoke_test": false,
+  "corpus_integrity_warning": null,
+  "experimental_warning": "Canonical 5.2 Core baseline analysis.",
+  "analyst_configuration": {
+    "analyst_a": {
+      "id": "ANALYST_A_TOPOLOGY_STRUCTURE",
+      "perspective": "Object relations, interfaces, syntax AST"
+    },
+    "analyst_b": {
+      "id": "ANALYST_B_INVARIANTS_CONSTRAINTS",
+      "perspective": "Boundary constraints, exception contracts, failure modes"
+    },
+    "independence_guarantee": "INDEPENDENCE ENFORCED BY EXPERIMENTAL CONFIGURATION"
+  },
+  "pipeline_status": "COMPLETED",
+  "raw_single_output": {
+    "observations": [
+      {
+        "id": "obs_01",
+        "source": "examples/sample-repository/src/auth/tokenValidator.ts",
+        "statement": "Class TokenValidator exports method validateBearerHeader requiring a Bearer prefix string",
+        "status": "FACT",
+        "timestamp": 1725450000000
+      },
+      {
+        "id": "obs_02",
+        "source": "examples/sample-repository/src/auth/types.ts",
+        "statement": "Interface AuthUser declares roles 'admin', 'user', and 'service'",
+        "status": "FACT",
+        "timestamp": 1725450000000
+      }
+    ],
+    "inferences": [
+      {
+        "id": "inf_01",
+        "derivedFrom": ["obs_01", "obs_02"],
+        "conclusion": "TokenValidator serves as the centralized authentication boundary enforcement point for protected route handlers",
+        "status": "INFERENCE",
+        "confidence": "HIGH",
+        "rationale": "All protected route definitions in routes/api.ts delegate header authorization checks exclusively to TokenValidator"
+      }
+    ],
+    "evidences": [
+      {
+        "id": "ev_01",
+        "sourceOutputId": "ast_analyzer_pass",
+        "validationStatus": "VALIDATED",
+        "file": "src/auth/tokenValidator.ts",
+        "line_start": null,
+        "line_end": null,
+        "source_excerpt": null
+      },
+      {
+        "id": "ev_02",
+        "sourceOutputId": "type_extractor_pass",
+        "validationStatus": "VALIDATED",
+        "file": "src/auth/types.ts",
+        "line_start": 1,
+        "line_end": 5,
+        "source_excerpt": "export interface AuthUser { id: string; role: 'admin' | 'user' | 'service'; scopes: string[]; }"
+      }
+    ],
+    "unknowns": [
+      {
+        "id": "unk_01",
+        "attribute": "rate_limiting_enforcement",
+        "reason": "No rate limiting middleware or throttle decorator was observed in routes/api.ts or index.ts. State remains UNKNOWN.",
+        "status": "UNKNOWN"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "dec_01",
+        "action": "ACTIVATE",
+        "target": "ast_analyzer_pass",
+        "reason": "Corpus integrity verified as COMPLETE",
+        "provenance": "intake_validator"
+      }
+    ],
+    "synthesisReport": {
+      "title": "Architectural Analysis: Micro-Auth Service",
+      "summary": "Verified isolated token validation boundary with explicit typed roles. Rate limiting mechanisms remain unestablished.",
+      "evidences": ["ev_01", "ev_02"]
+    }
+  },
+  "raw_dual_output": null,
+  "validation_record": null,
+  "epistemic_classification": {
+    "observations_count": 2,
+    "inferences_count": 1,
+    "evidence_count": 2,
+    "unknowns_count": 1,
+    "disputed_count": 0,
+    "agreements_count": 0,
+    "complementarity_count": 0
+  },
+  "epistemic_invariants": [
+    "OBSERVATION != INFERENCE",
+    "INFERENCE != EVIDENCE",
+    "UNKNOWN != FALSE",
+    "DISPUTED != TRUE",
+    "AGREEMENT != TRUTH"
+  ],
+  "gold_standard_provenance": {
+    "is_provided": false,
+    "checksum": "NOT_PROVIDED",
+    "is_locked": false,
+    "total_entries": 0
+  }
+}

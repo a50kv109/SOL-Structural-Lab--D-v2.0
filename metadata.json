@@ -1,0 +1,6 @@
+{
+  "name": "SOL Structural Lab v2.0",
+  "description": "Autonomous instance of SOL Structural Lab with 5.2 Core epistemic discipline and research pipeline",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
