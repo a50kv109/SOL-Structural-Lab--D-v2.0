@@ -41,6 +41,22 @@ DECIDE NEXT ACTION (preserve original epistemic statuses)
   - Internal execution telemetry
   - Implementation details of internal analyzers or private helper classes
 
+### Architectural Layer Separation (Do Not Conflate)
+
+1. **Structural Canon (`src/canon/`)**:
+   - 4 Primitives: `OBJECT`, `RELATION`, `CONSTRAINT`, `STATE`
+   - 4 Operators: `BIND`, `SPLIT`, `INSERT`, `DELETE`
+   - Defines structural elements and operations.
+2. **5.2 Epistemic Core (`src/core/`)**:
+   - 5 Entities: `OBSERVATION`, `INFERENCE`, `UNKNOWN`, `DECISION`, `EVIDENCE`
+   - 5 Contracts: `C1` through `C5`
+   - 7 Invariants: `I1` through `I7`
+   - Enforces epistemic certainty, non-fabrication, and verification gates.
+3. **Experimental & Benchmark Layer (`src/operators/`, `src/protocols/`)**:
+   - `DUAL_ANALYSIS`: Experimental hypothesis (`HYPOTHESIS`); analyst consensus does not constitute factual proof.
+   - Benchmark Alignment: Heuristic keyword and structural matching against pre-annotated reference sets.
+   - Candidate Tools: Isolated external integrations (`two-heroes-tool` status: `CANDIDATE`).
+
 ---
 
 ## 1. Purpose & Tool Usage Boundary

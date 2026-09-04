@@ -50,10 +50,10 @@ export class LaboratoryValidator {
         isValid = false;
         rejectionReason = 'Substantive Grounding Failure: 0 structural nodes or invariants extracted from source artifact.';
       } else if (out.toolId === 'tool_structural_analyzer') {
-        // Must contain real AST nodes with source locators
+        // Must contain real structural nodes with source locators
         const hasValidNodes = Array.isArray(payload.nodes) && payload.nodes.length > 0 && payload.nodes.some((n: any) => n.sourceRange || n.sourceFile);
         isValid = hasValidNodes;
-        rejectionReason = isValid ? '' : 'Structural AST validation failed: Missing verified source locators.';
+        rejectionReason = isValid ? '' : 'Structural node validation failed: Missing verified source locators.';
       } else if (out.toolId === 'tool_invariant_discovery') {
         // Must contain real discovered invariants with source ranges
         const hasValidInvariants = Array.isArray(payload.invariants) && payload.invariants.length > 0 && payload.invariants.some((inv: any) => inv.sourceRange || inv.sourceFile);
@@ -74,7 +74,7 @@ export class LaboratoryValidator {
         content: JSON.stringify(out.rawPayload, null, 2),
         validationStatus,
         validatorNotes: isValid
-          ? `Validated successfully: tool produced ${out.toolId === 'tool_structural_analyzer' ? `${payload.nodeCount} AST nodes` : `${payload.discoveredInvariantsCount} invariants`} grounded in source artifact in ${out.executionTimeMs}ms.`
+          ? `Validated successfully: tool produced ${out.toolId === 'tool_structural_analyzer' ? `${payload.nodeCount} structural nodes` : `${payload.discoveredInvariantsCount} invariants`} grounded in source artifact in ${out.executionTimeMs}ms.`
           : `Validation rejected: ${rejectionReason}`,
         timestamp: now,
       };

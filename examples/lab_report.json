@@ -15,7 +15,7 @@
   "analyst_configuration": {
     "analyst_a": {
       "id": "ANALYST_A_TOPOLOGY_STRUCTURE",
-      "perspective": "Object relations, interfaces, syntax AST"
+      "perspective": "Object relations, interfaces, module topology"
     },
     "analyst_b": {
       "id": "ANALYST_B_INVARIANTS_CONSTRAINTS",

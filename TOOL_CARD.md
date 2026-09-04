@@ -37,6 +37,7 @@ PARSER IMPLEMENTATION:
 VERIFICATION REALITY:
   - Built-in runtime integrity suite (`src/testing/integrityTest.ts`) with 12 automated checks covering 5.2 invariants, contracts C1-C5, and negative cases.
   - Executable via `npm test` or `bun run test`.
+  - Confirms internal architectural consistency; does not constitute external empirical validation on uncurated corpora.
 MAIN STRENGTH:
   - Immune to hallucinated certainty: enforces hard epistemic guardrails so derived interpretations cannot masquerade as ground truth.
 MAIN LIMITATION:

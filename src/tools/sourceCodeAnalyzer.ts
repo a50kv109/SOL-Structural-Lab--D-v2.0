@@ -63,7 +63,7 @@ export interface SourceFileAnalysis {
 
 export class SourceCodeAnalyzer {
   /**
-   * Parse a collection of ingested files and extract real AST structure
+   * Parse a collection of ingested files and extract source structure
    */
   public static analyzeRepositoryStructure(
     files: Array<{ path: string; sizeBytes: number; content?: string; contentSample?: string }>
@@ -189,10 +189,10 @@ export class SourceCodeAnalyzer {
     nodes.push(moduleNode);
 
     if (language === 'python') {
-      this.parsePythonAst(filePath, lines, moduleNodeId, nodes, edges);
+      this.parsePythonStructure(filePath, lines, moduleNodeId, nodes, edges);
       invariants.push(...this.discoverPythonInvariants(filePath, lines, content));
     } else if (language === 'typescript') {
-      this.parseTypeScriptAst(filePath, lines, moduleNodeId, nodes, edges);
+      this.parseTypeScriptStructure(filePath, lines, moduleNodeId, nodes, edges);
       invariants.push(...this.discoverTypeScriptInvariants(filePath, lines, content));
     }
 
@@ -210,7 +210,7 @@ export class SourceCodeAnalyzer {
   /**
    * Deterministic Python source-structure parser (regex & indentation tracking)
    */
-  private static parsePythonAst(
+  private static parsePythonStructure(
     filePath: string,
     lines: string[],
     moduleId: string,
@@ -391,7 +391,7 @@ export class SourceCodeAnalyzer {
   /**
    * Deterministic TypeScript / JS source-structure parser (regex & token heuristics)
    */
-  private static parseTypeScriptAst(
+  private static parseTypeScriptStructure(
     filePath: string,
     lines: string[],
     moduleId: string,
@@ -548,7 +548,7 @@ export class SourceCodeAnalyzer {
         endLine,
         statement: `Dual perspective synthesis engine produces unified interpretation via set operations (intersection/symmetric difference) without ground-truth verification.`,
         codeSnippet: lines.slice(startLine - 1, endLine).join('\n').slice(0, 500),
-        provenance: `AST heuristic scan on ${filePath} [lines ${startLine}-${endLine}]`,
+        provenance: `Structural heuristic scan on ${filePath} [lines ${startLine}-${endLine}]`,
         severity: 'CRITICAL',
       });
     }
@@ -570,7 +570,7 @@ export class SourceCodeAnalyzer {
         endLine: Math.min(lines.length, lineNum + 15),
         statement: `Preset hero personas define separate prompts and analytical lenses for dual execution.`,
         codeSnippet: lines.slice(Math.max(0, lineNum - 1), lineNum + 12).join('\n'),
-        provenance: `AST prompt template locator on ${filePath}`,
+        provenance: `Structural prompt template locator on ${filePath}`,
         severity: 'MEDIUM',
       });
     }

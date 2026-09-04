@@ -79,7 +79,7 @@ export class ArtifactExporter {
       analyst_configuration: {
         analyst_a: {
           id: 'ANALYST_A_TOPOLOGY_STRUCTURE',
-          perspective: 'Object relations, interfaces, syntax AST',
+          perspective: 'Object relations, interfaces, module topology',
         },
         analyst_b: {
           id: 'ANALYST_B_INVARIANTS_CONSTRAINTS',
@@ -182,7 +182,7 @@ ${corpusStatus === 'PARTIAL' || sourceMode === 'GITHUB_QUICK_SCAN' ? `
 - **Execution Duration:** ${session.singleDurationMs ? `${session.singleDurationMs} ms` : 'N/A'}
 
 ### 3.2 Dual Analysis Pass (Hypothesis)
-- **Analyst A Focus:** Topology, AST, Structural Components (Pass Log: ${session.rawDualOutput?.analystA?.executionLog?.observations?.length || 0} observations)
+- **Analyst A Focus:** Topology, Module Structure, Components (Pass Log: ${session.rawDualOutput?.analystA?.executionLog?.observations?.length || 0} observations)
 - **Analyst B Focus:** Invariants, Boundary Contracts, Exceptions (Pass Log: ${session.rawDualOutput?.analystB?.executionLog?.observations?.length || 0} observations)
 - **Agreements (A = B):** ${session.rawDualOutput?.agreementCount || 0} claims
 - **Complementarity (A ⊻ B):** ${session.rawDualOutput?.complementarityCount || 0} claims

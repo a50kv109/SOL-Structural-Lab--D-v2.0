@@ -61,7 +61,7 @@ export class DualAnalysisOperator {
   ): Promise<DualAnalysisResult> {
     const startTime = Date.now();
 
-    // 1. Independent Analyst A execution pass (Topology & Structural AST focus)
+    // 1. Independent Analyst A execution pass (Topology & Module Structure focus)
     const logA = await StructuralLabPipelineEngine.executeSinglePass(input, {
       requestedResearchMode: 'STRUCTURAL_RECONSTRUCTION',
       availableTools: availableTools.includes('tool_structural_analyzer') ? ['tool_structural_analyzer'] : availableTools,

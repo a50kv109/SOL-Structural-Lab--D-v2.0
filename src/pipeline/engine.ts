@@ -97,10 +97,10 @@ export class StructuralLabPipelineEngine {
 
             inferences.push({
               id: `inf_topo_${input.objectId}_${Date.now()}`,
-              statement: `System architecture is decomposed into ${fileCount} observable modules (${classCount} classes, ${fnCount} functions) with verified AST topology.`,
+              statement: `System architecture is decomposed into ${fileCount} observable modules (${classCount} classes, ${fnCount} functions) with verified structural topology.`,
               derivedFrom: [ev.id],
               confidence: 0.94,
-              reasoning: `Extracted ${payload.nodeCount} structural AST nodes and ${payload.edgeCount} dependency edges from source files.`,
+              reasoning: `Extracted ${payload.nodeCount} structural nodes and ${payload.edgeCount} dependency edges from source files.`,
               status: CoreStatus.INFERENCE,
             });
           }

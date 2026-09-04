@@ -11,12 +11,12 @@
 
 ## What is SOL Structural Lab (D-v2.0)?
 
-**SOL Structural Lab — D-v2.0** is an autonomous, deterministic structural analysis engine designed to evaluate software repositories with uncompromising epistemic discipline. It decomposes source code artifacts, audits structural contracts, and outputs machine-readable diagnostic reports (`lab_report.json`) where every claim is strictly classified by certainty: **`FACT`**, **`INFERENCE`**, **`UNKNOWN`**, **`AMBIGUOUS`**, or **`DISPUTED`**.
+**SOL Structural Lab — D-v2.0** is an autonomous, deterministic structural analysis engine designed to evaluate software repositories with strict epistemic discipline. It decomposes source code artifacts, audits structural contracts, and outputs machine-readable diagnostic reports (`lab_report.json`) where every claim is strictly classified by certainty: **`FACT`**, **`INFERENCE`**, **`UNKNOWN`**, **`AMBIGUOUS`**, or **`DISPUTED`**.
 
 ### Project Identity & Historical Lineage (LAB-G vs D-v2.0)
 
 - **Current Release (D-v2.0):** This repository represents the standalone, public release of **SOL Structural Lab — D-v2.0**. It contains a self-contained execution pipeline (Contracts C1–C5), built-in integrity self-audit suites, and autonomous agent operational protocols.
-- **Historical Lineage (LAB-G):** **LAB-G** (Laboratory Generation G) was the internal research prototype and experimental baseline from which D-v2.0 evolved. References to LAB-G in provenance notes and historical experiment registries denote this operational lineage. D-v2.0 is an autonomous, hardened implementation with strict 5.2 Core discipline, not merely a replica of LAB-G.
+- **Historical Lineage (LAB-G):** **LAB-G** (Laboratory Generation G) was the internal research prototype and experimental baseline from which D-v2.0 evolved. References to LAB-G in provenance notes and historical experiment registries denote this operational lineage. D-v2.0 is an autonomous implementation with strict 5.2 Core discipline and built-in integrity controls, not merely a replica of LAB-G.
 
 ---
 
@@ -28,7 +28,7 @@ When autonomous AI coding and reasoning agents inspect unfamiliar codebases, the
 - **Negative coercion**: Conflating unobserved properties (`UNKNOWN`) with non-existence (`FALSE`), falsely asserting that missing observations mean missing features.
 - **Coordinate fabrication**: Inventing line numbers when exact source coordinates are absent.
 
-**D-v2.0** provides a mathematically and epistemically hardened analytical boundary that prevents humans and autonomous agents from mistaking speculative inferences for verified evidence.
+**D-v2.0** provides an epistemically constrained analytical boundary that prevents humans and autonomous agents from mistaking speculative inferences for verified evidence.
 
 ---
 
@@ -160,6 +160,12 @@ To ensure total transparency regarding testing and verification:
   bun run lint
   ```
 - **External Test Runner Notice:** A dedicated external test framework (such as Jest or Vitest) is intentionally not bundled; validation relies on the built-in `BuildIntegrityTester`, TypeScript compilation (`tsc --noEmit`), and Vite production builds.
+
+### Scope of Empirical Validation (Explicit Disclosure)
+- **Internal Invariant Verification vs. Empirical Proof:** The 12 automated integrity checks verify *internal logical and architectural consistency* (invariants, contract enforcement, and negative cases). They do **not** constitute an external scientific or empirical proof of effectiveness across arbitrary uncurated repositories.
+- **Gold Standard Matching:** Alignment against reference benchmarks utilizes *deterministic keyword and structural matching*, not formal mathematical theorem proving.
+- **Real Corpus Experimentation:** Protocol readiness (`PROTOCOL_READY`) reflects an experimental plan and test harness, not a claim that broad empirical trials have already been concluded.
+- **Build & Lint Status:** Clean builds and test runs confirm TypeScript compilation and internal self-checks, not universal diagnostic utility.
 
 ---
 

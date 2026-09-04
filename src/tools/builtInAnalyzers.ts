@@ -10,7 +10,7 @@ import { SourceCodeAnalyzer } from './sourceCodeAnalyzer';
 
 export class BuiltInAnalyzers {
   public static initialize() {
-    // 1. Deterministic Structural AST Analyzer
+    // 1. Deterministic Source-Structure Analyzer
     LaboratoryExecutor.registerToolHandler('tool_structural_analyzer', async (ctx: ToolContext) => {
       const files = ctx.files || [];
 
@@ -53,7 +53,7 @@ export class BuiltInAnalyzers {
           })),
           timestamp: Date.now(),
         },
-        stdout: `Decomposed ${analysis.summary.totalFiles} files into ${analysis.nodes.length} structural AST nodes (Classes: ${analysis.summary.totalClasses}, Functions: ${analysis.summary.totalFunctions}, Imports: ${analysis.summary.totalImports}, Calls: ${analysis.summary.totalCalls}) with ${analysis.edges.length} dependency edges for target '${ctx.objectId}'.`,
+        stdout: `Decomposed ${analysis.summary.totalFiles} files into ${analysis.nodes.length} structural nodes (Classes: ${analysis.summary.totalClasses}, Functions: ${analysis.summary.totalFunctions}, Imports: ${analysis.summary.totalImports}, Calls: ${analysis.summary.totalCalls}) with ${analysis.edges.length} dependency edges for target '${ctx.objectId}'.`,
       };
     });
 
